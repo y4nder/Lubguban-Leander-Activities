@@ -19,9 +19,10 @@ public class StackChar{
     }
 
     public char pop(){
-        if(top == 0){
+        if(isEmpty()){
             return 'x';
         }
+        
         char x = stack[top--];
         return x;
     }

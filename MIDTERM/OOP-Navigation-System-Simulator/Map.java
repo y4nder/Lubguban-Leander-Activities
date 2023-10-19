@@ -1,25 +1,26 @@
 public class Map{
     private Route startingPosition;
     public Map(){
-        Route start = new Route("Cebu City", 0);
-        Route route1 = new Route("Mingla", 14.2);
-        Route route2 = new Route("San Fernando", 12.5);
-        Route route3 = new Route("Carcar", 10.3);
+        Route start = new Route("(Start) Cebu City", 0);
+        Route route1 = new Route("Route 1: Mingla", 14.2);
+        Route route2 = new Route("Route 2: San Fernando", 12.5);
+        Route route3 = new Route("Route 3: Carcar", 10.3);
 
-        Route route41 = new Route(" - Barili", 17.5);
-        Route route411 = new Route(" - Dumanjug", 17.5);
-        Route route412 = new Route(" - Alcantara", 10.8);
-        Route routeEnd1 = new Route("Moalboal", 2.1);
+        Route route41 = new Route("Route 4.1: Barili", 17.5);
+        Route route411 = new Route("    Route 4.1.1: Dumanjug", 17.5);
+        Route route412 = new Route("    Route 4.1.2: Alcantara", 10.8);
+        Route routeEnd1 = new Route("(End) Moalboal", 2.1);
         
-        Route route42 = new Route(" - Sibonga", 14.2);
-        Route route421 = new Route(" - Dumanjug", 32.1);
-        Route route422 = new Route(" - Alcantara", 10.8);
-        Route routeEnd2 = new Route("Moalboal", 2.1);
+        Route route42 = new Route("Route 4.2: Sibonga", 14.2);
 
-        Route route5 = new Route(" - Argao", 27.4);
-        Route route51= new Route(" - Ronda", 21.4);
-        Route route52 = new Route(" - Alcantara", 13);
-        Route routeEnd3 = new Route("Moalboal", 13.7);
+        Route route421 = new Route("    Route 4.2.1: Dumanjug", 32.1);
+        Route route422 = new Route("    Route 4.2.2: Alcantara", 10.8);
+        Route routeEnd2 = new Route("(End) Moalboal", 2.1);
+
+        Route route5 = new Route("Route 5: Argao", 27.4);
+        Route route51= new Route("Route 5.1:  Ronda", 21.4);
+        Route route52 = new Route("Route 5.2: Alcantara", 13);
+        Route routeEnd3 = new Route("(End) Moalboal", 13.7);
 
         //setting up paths
         start.setLeftRoute(route1);
