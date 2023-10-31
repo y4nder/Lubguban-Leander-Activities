@@ -53,12 +53,13 @@ public class BankAccount {
         
     //method to deposit money to the account
     public void deposit(double amount) {
-        if (amount > 0) {
-            balance += amount;
-            System.out.println("\nDeposited $" + amount + " into the account.");
-        } else {
+        if (amount <= 0) {
             System.out.println("\nInvalid deposit amount. Amount must be greater than 0.");
+            return;
         }
+        
+        balance += amount;
+        System.out.println("\nDeposited $" + amount + " into the account.");
     }
 
     // Method to withdraw money from the account
