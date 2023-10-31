@@ -21,35 +21,16 @@ Methods:
 package SEMIFINALS.SimpleBankAccountSystem;
 
 public class BankAccount {
-    private int accountNumber;
-    private String accountName;
-    private double balance;
+    private final int accountNumber;                //final fields para dili na ma modify ang account
+    private final String accountName;
+    private double balance;                         //since ang balance ma change paman then dili sya final
     
     //default constructor
-    
-    //getters
-    public int getAccountNumber() {
-        return accountNumber;
+    public BankAccount(){
+        this.accountNumber = 0;
+        this.accountName = "default Name";
+        this.balance = 0.0;
     }
-    
-    public String getAccountName() {
-        return accountName;
-    }
-    
-    public double getBalance() {
-        return balance;
-    }
-    
-    //setters
-    public void setAccountNumber(int accountNumber) {
-        this.accountNumber = accountNumber;
-    }
-    
-    public void setAccountName(String accountName) {
-        this.accountName = accountName;
-    }
-
-    //no setter for balance variable, the deposit method will be used
         
     //method to deposit money to the account
     public void deposit(double amount) {
@@ -57,7 +38,7 @@ public class BankAccount {
             System.out.println("\nInvalid deposit amount. Amount must be greater than 0.");
             return;
         }
-        
+
         balance += amount;
         System.out.println("\nDeposited $" + amount + " into the account.");
     }
@@ -94,13 +75,6 @@ public class BankAccount {
     public static void main(String[] args){
         //creating a bank account
         BankAccount b1 = new BankAccount();
-
-        //assigning account number
-        b1.setAccountNumber(696969);
-
-        //assigning account name
-        b1.setAccountName("Leander Lorenz Lubguban");
-
         //using deposit method
         b1.deposit(50000.0);
 
