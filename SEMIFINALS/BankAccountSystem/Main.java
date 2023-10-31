@@ -8,7 +8,7 @@ public class Main {
     //this main method simulates a bank system with a database
     public static void main(String[] args){
         BankDataBase bankDataBase = new BankDataBase();
-        
+
         boolean exitFlag = false;
         while(!exitFlag){
             clear();
@@ -63,12 +63,15 @@ public class Main {
 
     //log in method
     public static void logIn(BankDataBase bankDataBase){
-        separate();
         int input;
         boolean exitFlag = false;
         BankAccount b;
-
+        
         while(!exitFlag){
+            separate();
+            clear();
+            System.out.println("----Log In Menu----");
+            System.out.println("Enter your Account Number below: ");
             System.out.println("[0] - cancel");
             System.out.print("Acccount number: ");
             input = scan.nextInt();
