@@ -87,6 +87,7 @@ public class BankAccount {
     public static void main(String[] args){
         //creating a bank account
         BankAccount b1 = new BankAccount();
+        
         //using deposit method
         b1.deposit(50000.0);
 
@@ -104,7 +105,7 @@ public class BankAccount {
         System.out.println(b1.toString());
         
         /* 
-         * with interface: https://github.com/y4nder/Lubguban-Leander-Activities/tree/main/SEMIFINALS/BankAccountSystem
+         * version with interface: https://github.com/y4nder/Interactive-Bank-System
          */
     }
 }
