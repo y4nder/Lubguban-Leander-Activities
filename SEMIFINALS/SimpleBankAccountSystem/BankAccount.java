@@ -1,4 +1,6 @@
 /*
+Author: Leander Lorenz Lubguban
+Date created: October 31, 2023
 Instructions: Create a Java program that models a bank account. 
 You should have a Bank Account class with attributes for the account number, account holder's name, and balance. 
 The class should include methods to deposit, withdraw, and display the balance.
@@ -25,11 +27,20 @@ public class BankAccount {
     private final String accountName;               //final para dili sad ma modify ang name
     private double balance;                         //since ang balance ma change paman then dili sya final
     
-    //default constructor
-    public BankAccount(){
+    public BankAccount(){   //(Default constructor)
         this.accountNumber = 0;
         this.accountName = "default Name";
         this.balance = 0.0;
+    }
+
+    //modified getters
+    public int getAccountNumber(){
+        int acNum = this.accountNumber;
+        return acNum;
+    }
+
+    public String getAccountName(){
+        return new String(accountName);
     }
         
     //method to deposit money to the account
@@ -67,8 +78,8 @@ public class BankAccount {
     //method to display details
     public String toString(){
         return "\nAccount Details" + 
-                "\nAccount Number: " + accountNumber + 
-                "\nAccount Holder's Name: " + accountName + 
+                "\nAccount Number: " + getAccountNumber() + 
+                "\nAccount Holder's Name: " + getAccountName() + 
                 "\nBalance $: " + balance;
     }
 
@@ -91,5 +102,9 @@ public class BankAccount {
         
         //displaying account details
         System.out.println(b1.toString());
-    }   
+        
+        /* 
+         * with interface: https://github.com/y4nder/Lubguban-Leander-Activities/tree/main/SEMIFINALS/BankAccountSystem
+         */
+    }
 }

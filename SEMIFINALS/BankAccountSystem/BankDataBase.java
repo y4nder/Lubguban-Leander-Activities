@@ -1,10 +1,10 @@
 package SEMIFINALS.BankAccountSystem;
-
 import java.util.HashMap;
 
+//this class stores all created Bank Accounts
 public class BankDataBase {
     private HashMap<Integer, BankAccount> listOfAccounts;
-    static int Bankbranch = 600;
+    static int Bankbranch = 600; //for generating account number
     
     public BankDataBase(){
         this.listOfAccounts = new HashMap<>();
@@ -15,11 +15,18 @@ public class BankDataBase {
     }
 
     //methods
-    public void addAccount(BankAccount b){
+    public BankAccount createAndAddAccount(String name, double balance){
         int accountNumber = generateAccountNumber();
-        b.setAccountNumber(accountNumber);
+        BankAccount b = new BankAccount(accountNumber, name, balance);
         listOfAccounts.put(accountNumber, b);
-        displayAddedAccount(b);
+        System.out.println("\nSuccesfully created a bank account!");
+        System.out.println("REMEMBER YOUR ACCOUNT NUMBER");
+        System.out.println("--------------------------------------");
+        System.out.println("Account number: " + accountNumber);
+        System.out.println("Account Name: " + name);
+        System.out.println("Initial Balance: " + balance);
+        System.out.println("--------------------------------------");
+        return b;
     }
 
     private int generateAccountNumber(){
@@ -40,13 +47,5 @@ public class BankDataBase {
         else{
             return null;
         }
-    }
-
-    private void displayAddedAccount(BankAccount b){
-        System.out.println("\nSuccesfully created a bank account!");
-        System.out.println("REMEMBER YOUR ACCOUNT NUMBER");
-        System.out.println("--------------------------------------");
-        b.displayDetails();
-        System.out.println("--------------------------------------");
     }
 }

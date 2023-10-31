@@ -4,9 +4,10 @@ import java.util.*;
 
 public class Main {
     static Scanner scan = new Scanner(System.in);
+
+    //this main method simulates a bank system with a database
     public static void main(String[] args){
         BankDataBase bankDataBase = new BankDataBase();
-
         boolean exitFlag = false;
         while(!exitFlag){
             clear();
@@ -35,9 +36,20 @@ public class Main {
     }
 
     static void bankAccountCreation(BankDataBase bankDataBase){
-        BankAccount newAcc = createBankAccount();
         clear();
-        bankDataBase.addAccount(newAcc);
+        separate();
+        scan.nextLine();
+
+        System.out.println("Creating bank account details");
+        System.out.print("Enter your full name: ");
+        String name = scan.nextLine();
+        
+        System.out.print("Enter initial deposit: ");
+        double initialDeposit = scan.nextDouble();
+        clear();
+
+        BankAccount newAcc = bankDataBase.createAndAddAccount(name, initialDeposit);
+
         while(true){
             System.out.print("Enter '1' to proceed: ");
             int x = scan.nextInt();
@@ -116,6 +128,39 @@ public class Main {
         return;
     }
 
+    //deposit method
+    static void depositToAccount(BankAccount b, String instructions){
+        clear();
+        separate();
+        boolean flag = false;
+        while(!flag){
+            System.out.print(instructions);
+            double amount = scan.nextDouble();
+            clear();
+            flag = b.deposit(amount);
+        }
+    }
+
+    //withdraw account
+    static void withdrawFromAccount(BankAccount b){
+        clear();
+        separate();
+        boolean flag = false;
+        while(!flag){
+            System.out.println("Enter amount to withdraw");
+            double amount = scan.nextDouble();
+            clear();
+            flag = b.withdraw(amount);
+        }
+    }
+
+    //display account
+    static void displayBalance(BankAccount b){
+        clear();
+        separate();
+        b.displayBalance();
+    }
+
     //helper methods
     static boolean doAnotherTransaction(){
         separate();
@@ -136,52 +181,7 @@ public class Main {
 
         }
     }
-
-    //deposit method
-    static void depositToAccount(BankAccount b, String instructions){
-        separate();
-        boolean flag = false;
-        while(!flag){
-            System.out.print(instructions);
-            double amount = scan.nextDouble();
-            flag = b.deposit(amount);
-        }
-    }
-
-    //withdraw account
-    static void withdrawFromAccount(BankAccount b){
-        separate();
-        boolean flag = false;
-        while(!flag){
-            System.out.println("Enter amount to withdraw");
-            double amount = scan.nextDouble();
-            flag = b.withdraw(amount);
-        }
-    }
-
-    //display account
-    static void displayBalance(BankAccount b){
-        separate();
-        b.displayBalance();
-    }
-
-    //create a bank account method
-    static BankAccount createBankAccount(){
-        clear();
-        separate();
-        BankAccount b = new BankAccount();
-        scan.nextLine();
-
-        System.out.println("Creating bank account details");
-        
-        System.out.print("Enter your full name: ");
-        b.setAccountName(scan.nextLine());
-        
-        depositToAccount(b, "Enter initial deposit: ");
-        
-        return b;
-    }
-
+    
     static void clear(){
         System.out.print("\033[H\033[2J");
         System.out.flush();

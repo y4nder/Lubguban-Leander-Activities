@@ -1,70 +1,76 @@
+/*
+Author: Leander Lorenz Lubguban
+Date created: October 31, 2023
+Instructions: Create a Java program that models a bank account. 
+You should have a Bank Account class with attributes for the account number, account holder's name, and balance. 
+The class should include methods to deposit, withdraw, and display the balance.
+
+Please write the Java code for the BankAccount class and demonstrate its usage in the main method.
+
+[Class Bank Account]
+Attributes:
+- int accountNumber
+- String accountName
+- double balance
+
+Methods:
+- BankAccount (Default constructor)
+- deposit 
+-  withdraw
+- displayBalance
+*/
+
 package SEMIFINALS.BankAccountSystem;
 
 public class BankAccount {
-    private int accountNumber;
-    private String accountName;
-    private double balance;
-
-    public BankAccount() {
-        accountNumber = 0;
-        accountName = "";
-        balance = 0.0;
-    }
-
-    //getters
-    public int getAccountNumber() {
-        return accountNumber;
-    }
-
-    public String getAccountName() {
-        return accountName;
-    }
-
-    public double getBalance() {
-        return balance;
-    }
-
-    //setters
-    public void setAccountNumber(int accountNumber) {
+    private final int accountNumber;                //final para dili na ma modify ang accountnumber
+    private final String accountName;               //final para dili sad ma modify ang name
+    private double balance;                         //since ang balance ma change paman then dili sya final
+    
+    //default constructor
+    public BankAccount(int accountNumber, String accountName, double initialDeposit){
         this.accountNumber = accountNumber;
-    }
-
-    public void setAccountName(String accountName) {
         this.accountName = accountName;
+        this.balance = initialDeposit;
     }
 
+    //modified getter para dili ang original ma return
+    public String getAccountName(){
+        return new String(accountName);
+    }
+            
     //method to deposit money to the account
     public boolean deposit(double amount) {
-        if (amount > 0) {
-            balance += amount;
-            System.out.println("\nDeposited $" + amount + " into the account.");
-            return true;
-        } else {
+        if (amount <= 0) {
             System.out.println("\nInvalid deposit amount. Amount must be greater than 0.");
             return false;
         }
+
+        balance += amount;
+        System.out.println("\nDeposited $" + amount + " into the account.");
+        return true;
     }
 
     // Method to withdraw money from the account
     public boolean withdraw(double amount) {
-        if (amount > 0 && amount <= balance) {
-            balance -= amount;
-            System.out.println("\nWithdrawn $" + amount + " from the account.");
-            return true;
-        } else {
-            System.out.println("\nInvalid withdrawal amount or insufficient balance.");
+        if(amount <= 0){
+            System.out.println("\ninvalid withdrawal. Amount must be greater than 0.");
             return false;
         }
+
+        if(amount > balance){
+            System.out.println("\nInsufficient balance.");
+            return false;
+        }
+
+        balance -= amount;
+        System.out.println("\nWithdrawn $" + amount + " from the account.");
+        return true;
     }
 
+    //method to display Balance
     public void displayBalance() {
-        System.out.println("Balance: $" + balance);
+        System.out.println("\nBalance: $" + balance);
     }
 
-    public void displayDetails(){
-        System.out.println("\nAccount Number: " + accountNumber);
-        System.out.println("Account Holder's Name: " + accountName);
-        System.out.println("Balance: $" + balance);
-        System.out.println();
-    }
 }
