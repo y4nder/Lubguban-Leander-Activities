@@ -135,10 +135,13 @@ public class Main {
         clearScreen();
         boolean flag = false;
         while(!flag){
-            System.out.print("Enter amount to deposit: ");
-            double amount = scan.nextDouble();
+            System.out.println("Enter amount to deposit");
+            System.out.println("[0] cancel");
+            String amount = getAmountInput();
+            if(amount.equals("0")) return;
+
             clearScreen();
-            flag = b.deposit(amount);
+            flag = b.deposit(Double.parseDouble(amount));
         }
     }
 
@@ -148,9 +151,12 @@ public class Main {
         boolean flag = false;
         while(!flag){
             System.out.println("Enter amount to withdraw");
-            double amount = scan.nextDouble();
+            System.out.println("[0] cancel");
+            String amount = getAmountInput();
+            if(amount.equals("0")) return;
+
             clearScreen();
-            flag = b.withdraw(amount);
+            flag = b.withdraw(Double.parseDouble(amount));
         }
     }
 
@@ -185,5 +191,28 @@ public class Main {
         System.out.print("\033[H\033[2J");
         System.out.flush();
         System.out.println("-----------------------------------");
+    }
+
+    static String getAmountInput(){
+        scan.nextLine();
+        String amount;
+        do{
+            System.out.print("> ");
+            amount = scan.nextLine();
+        }
+        while(!tryToParse(amount));
+        
+        return amount;
+
+    }
+
+    static boolean tryToParse(String amount){
+        try {
+            Double.parseDouble(amount);   
+            return true;
+        } catch (Exception e){
+            System.out.println("Invalid input");
+            return false;
+        }
     }
 }
