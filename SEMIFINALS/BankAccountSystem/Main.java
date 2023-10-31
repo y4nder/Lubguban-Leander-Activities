@@ -12,7 +12,7 @@ public class Main {
         boolean exitFlag = false;
         while(!exitFlag){
             clearScreen();
-            System.out.println("-----JAVA BANKING SYSTEM-----");
+            System.out.println("    JAVA BANKING SYSTEM");
             System.out.println("[1] log in to your bank account");
             System.out.println("[2] create a bank account");
             System.out.println("[0] exit");
@@ -66,14 +66,14 @@ public class Main {
         boolean exitFlag = false;
         BankAccount b;
         
+        clearScreen();
         while(!exitFlag){
-            clearScreen();
-            System.out.println("----Log In Menu----");
-            System.out.println("Enter your Account Number below: ");
+            System.out.println("    Log In Menu");
+            System.out.println("Enter your Account Number below");
             System.out.println("[0] - cancel");
-            System.out.print("Acccount number: ");
+            System.out.print("> ");
             input = scan.nextInt();
-
+            
             if(input == 0){
                 System.out.println("exiting...");
                 exitFlag = true;
@@ -87,7 +87,8 @@ public class Main {
                 return;
             }
             else{
-                System.out.println("account does not exist\n");
+                clearScreen();
+                System.out.println("account number: " + input + " does not exist\n");
             }
         }
         return;
@@ -161,7 +162,7 @@ public class Main {
 
     //helper methods
     static boolean doAnotherTransaction(){
-        clearScreen();
+        System.out.println("-----------------------------------");
         while(true){
             System.out.println("Would you like to do another transaction?");
             System.out.println("[1] yes");
@@ -185,5 +186,4 @@ public class Main {
         System.out.flush();
         System.out.println("-----------------------------------");
     }
-
 }
