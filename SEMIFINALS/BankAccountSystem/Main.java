@@ -11,7 +11,7 @@ public class Main {
 
         boolean exitFlag = false;
         while(!exitFlag){
-            clear();
+            clearScreen();
             System.out.println("-----JAVA BANKING SYSTEM-----");
             System.out.println("[1] log in to your bank account");
             System.out.println("[2] create a bank account");
@@ -37,8 +37,7 @@ public class Main {
     }
 
     static void bankAccountCreation(BankDataBase bankDataBase){
-        clear();
-        separate();
+        clearScreen();
         scan.nextLine();
 
         System.out.println("Creating bank account details");
@@ -47,7 +46,7 @@ public class Main {
         
         System.out.print("Enter initial deposit: ");
         double initialDeposit = scan.nextDouble();
-        clear();
+        clearScreen();
 
         BankAccount newAcc = bankDataBase.createAndAddAccount(name, initialDeposit);
 
@@ -68,8 +67,7 @@ public class Main {
         BankAccount b;
         
         while(!exitFlag){
-            separate();
-            clear();
+            clearScreen();
             System.out.println("----Log In Menu----");
             System.out.println("Enter your Account Number below: ");
             System.out.println("[0] - cancel");
@@ -98,8 +96,7 @@ public class Main {
     public static void UserMenu(BankAccount b){
         boolean exitFlag = false;
         while(!exitFlag){
-            clear();
-            separate();
+            clearScreen();
             System.out.println("Current Account: " + b.getAccountName().toUpperCase());
             System.out.println("[1] deposit");
             System.out.println("[2] withdraw");
@@ -134,42 +131,37 @@ public class Main {
 
     //deposit method
     static void depositToAccount(BankAccount b){
-        clear();
-        separate();
+        clearScreen();
         boolean flag = false;
         while(!flag){
             System.out.print("Enter amount to deposit: ");
             double amount = scan.nextDouble();
-            clear();
-            separate();
+            clearScreen();
             flag = b.deposit(amount);
         }
     }
 
     //withdraw account
     static void withdrawFromAccount(BankAccount b){
-        clear();
-        separate();
+        clearScreen();
         boolean flag = false;
         while(!flag){
             System.out.println("Enter amount to withdraw");
             double amount = scan.nextDouble();
-            clear();
-            separate();
+            clearScreen();
             flag = b.withdraw(amount);
         }
     }
 
     //display account
     static void displayBalance(BankAccount b){
-        clear();
-        separate();
+        clearScreen();
         b.displayBalance();
     }
 
     //helper methods
     static boolean doAnotherTransaction(){
-        separate();
+        clearScreen();
         while(true){
             System.out.println("Would you like to do another transaction?");
             System.out.println("[1] yes");
@@ -188,12 +180,9 @@ public class Main {
         }
     }
     
-    static void clear(){
+    static void clearScreen(){
         System.out.print("\033[H\033[2J");
         System.out.flush();
-    }
-
-    static void separate(){
         System.out.println("-----------------------------------");
     }
 
