@@ -134,6 +134,7 @@ public class Main {
     static void depositToAccount(BankAccount b){
         clearScreen();
         boolean flag = false;
+        scan.nextLine();
         while(!flag){
             System.out.println("Enter amount to deposit");
             System.out.println("[0] cancel");
@@ -149,6 +150,7 @@ public class Main {
     static void withdrawFromAccount(BankAccount b){
         clearScreen();
         boolean flag = false;
+        scan.nextLine();
         while(!flag){
             System.out.println("Enter amount to withdraw");
             System.out.println("[0] cancel");
@@ -194,7 +196,6 @@ public class Main {
     }
 
     static String getAmountInput(){
-        scan.nextLine();
         String amount;
         do{
             System.out.print("> ");
