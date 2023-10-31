@@ -96,7 +96,7 @@ public class Main {
         while(!exitFlag){
             clear();
             separate();
-            System.out.println("What would you like to do today " + b.getAccountName());
+            System.out.println("Current Account: " + b.getAccountName().toUpperCase());
             System.out.println("[1] deposit");
             System.out.println("[2] withdraw");
             System.out.println("[3] display Balance");
@@ -108,7 +108,7 @@ public class Main {
     
             switch (choice) {
                 case 1:
-                    depositToAccount(b, "Enter amount to deposit: ");
+                    depositToAccount(b);
                     break;
                 case 2:
                     withdrawFromAccount(b);
@@ -129,14 +129,15 @@ public class Main {
     }
 
     //deposit method
-    static void depositToAccount(BankAccount b, String instructions){
+    static void depositToAccount(BankAccount b){
         clear();
         separate();
         boolean flag = false;
         while(!flag){
-            System.out.print(instructions);
+            System.out.print("Enter amount to deposit: ");
             double amount = scan.nextDouble();
             clear();
+            separate();
             flag = b.deposit(amount);
         }
     }
@@ -150,6 +151,7 @@ public class Main {
             System.out.println("Enter amount to withdraw");
             double amount = scan.nextDouble();
             clear();
+            separate();
             flag = b.withdraw(amount);
         }
     }

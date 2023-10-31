@@ -42,35 +42,35 @@ public class BankAccount {
     //method to deposit money to the account
     public boolean deposit(double amount) {
         if (amount <= 0) {
-            System.out.println("\nInvalid deposit amount. Amount must be greater than 0.");
+            System.out.println("Invalid deposit amount. Amount must be greater than 0.");
             return false;
         }
 
         balance += amount;
-        System.out.println("\nDeposited $" + amount + " into the account.");
+        System.out.println("Deposited $" + amount + " into the account.");
         return true;
     }
 
     // Method to withdraw money from the account
     public boolean withdraw(double amount) {
         if(amount <= 0){
-            System.out.println("\ninvalid withdrawal. Amount must be greater than 0.");
+            System.out.println("invalid withdrawal. Amount must be greater than 0.");
             return false;
         }
 
         if(amount > balance){
-            System.out.println("\nInsufficient balance.");
+            System.out.println("Insufficient balance.");
             return false;
         }
 
         balance -= amount;
-        System.out.println("\nWithdrawn $" + amount + " from the account.");
+        System.out.println("Withdrawn $" + amount + " from the account.");
         return true;
     }
 
     //method to display Balance
     public void displayBalance() {
-        System.out.println("\nBalance: $" + balance);
+        System.out.println("Balance: $" + balance);
     }
 
 }
