@@ -21,8 +21,8 @@ Methods:
 package SEMIFINALS.SimpleBankAccountSystem;
 
 public class BankAccount {
-    private final int accountNumber;                //final fields para dili na ma modify ang account
-    private final String accountName;
+    private final int accountNumber;                //final para dili na ma modify ang accountnumber
+    private final String accountName;               //final para dili sad ma modify ang name
     private double balance;                         //since ang balance ma change paman then dili sya final
     
     //default constructor
@@ -72,6 +72,7 @@ public class BankAccount {
                 "\nBalance $: " + balance;
     }
 
+    //main method to demonstrate usage
     public static void main(String[] args){
         //creating a bank account
         BankAccount b1 = new BankAccount();
