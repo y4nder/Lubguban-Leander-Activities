@@ -8,6 +8,7 @@ public class Main {
     //this main method simulates a bank system with a database
     public static void main(String[] args){
         BankDataBase bankDataBase = new BankDataBase();
+        
         boolean exitFlag = false;
         while(!exitFlag){
             clear();
